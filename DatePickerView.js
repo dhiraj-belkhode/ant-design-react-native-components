@@ -1,0 +1,39 @@
+/* tslint:disable:no-console */
+import React from 'react';
+import { Text, View } from 'react-native';
+import { DatePickerView } from 'antd-mobile-rn';
+import enUs from 'antd-mobile-rn/lib/date-picker-view/locale/en_US';
+
+
+
+export default class DatePickerViewExample extends React.Component {
+  state = {
+    value: null,
+  };
+  onChange = (value: any) => {
+    console.log(value);
+    this.setState({ value });
+  }
+  onValueChange = (...args: any[]) => {
+    console.log(args);
+  }
+  render() {
+    return (
+      <View>
+        <Text style={{ margin: 16 }}>Start DateTime</Text>
+        <DatePickerView
+          value={this.state.value}
+          onChange={this.onChange}
+          onValueChange={this.onValueChange}
+        />
+        <Text style={{ margin: 16 }}>End DateTime</Text>
+        <DatePickerView
+          value={this.state.value}
+          onChange={this.onChange}
+          onValueChange={this.onValueChange}
+          locale={enUs}
+        />
+      </View>
+    );
+  }
+}
